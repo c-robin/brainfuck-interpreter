@@ -1,6 +1,10 @@
 #!/usr/bin/python
 import sys
 
+
+class BrainfuckSyntaxException(Exception):
+    pass
+
 # bf_chars = ['.', ',', '[', ']', '<', '>', '+', '-']
 # Cells have a cize of 8-bits so 255
 CELL_SIZE =  255
@@ -13,9 +17,13 @@ def matching_brackets(code):
         if cmd == "[":
             stack.append(pos);
         elif cmd == "]":
+            if len(stack) == 0:
+                raise BrainfuckSyntaxException("Missing [ for a ]")
             prevpos = stack.pop()
             matching[prevpos] = pos
             matching[pos] = prevpos
+    if len(stack) != 0:
+        raise BrainfuckSyntaxException("Missing ] for a [")
     return matching
 
 def interpret(code):
