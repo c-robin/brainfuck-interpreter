@@ -50,7 +50,7 @@ def interpret(code):
         if command == "-":
             cells[dataptr] = cells[dataptr] - 1 if cells[dataptr] > 0 else CELL_SIZE
         
-        if command == ".": print chr(cells[dataptr]),
+        if command == ".": sys.stdout.write(chr(cells[dataptr]))
         if command == ",": cells[dataptr] = ord(raw_input()[0])
         
         if command == "[" and cells[dataptr] == 0:
@@ -64,5 +64,7 @@ def interpret(code):
     
 # should print "Hello World!"
 interpret('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.')
+# Print 2 + 2 = 5
+interpret('-[----->+<]>-.--[--->++<]>.+++++++++++.-----------.[-->+++<]>++.--[--->++<]>.-[->++<]>-.+[-->+<]>+.-----[->++<]>-.')
 # ToLower
 interpret('+[ >,>++++[<++++++++>-]<.<]')
