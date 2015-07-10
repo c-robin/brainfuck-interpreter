@@ -1,5 +1,7 @@
 # brainfuck-interpreter
 
-This will be a small Brainfuck interpreter written in Python.
+This is a small Brainfuck interpreter written in Python.
+
+It supports all brainfuck codes, including comments.
 
 http://en.wikipedia.org/wiki/Brainfuck
